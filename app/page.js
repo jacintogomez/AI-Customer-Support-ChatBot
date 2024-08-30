@@ -1,95 +1,25 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+import {Box,Stack} from '@mui/material';
+import {useState} from 'react';
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+  const [messages,setmessages]=useState([{
+    role: 'assistant',
+    content: `Hi, I'm the HeadStarter Support Agent. How can I help you today?`,
+  }]);
+  const [message,setmessage]=useState('');
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+  return <Box width='100vw' height='100bh' display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
+    <Stack direction='column' width='600px' height='700px' border='1px solid black' p={2} spacing={2}>
+      <Stack direction='column' spacing={2} flexGrow={1} overflow='auto' maxHeight='100%'>
+        {messages.map((msg,index)=>(
+            <Box key={index} display='flex' justifyContent={msg.role==='assistant'?'flex-start':'flex-end'}>
+              <Box bgcolor={msg.role==='assistant'?'primary.main':'secondary.main'} color='white' borderRadius={16} p={3}>
+                {msg.content}
+              </Box>
+            </Box>
+        ))}
+      </Stack>
+    </Stack>
+  </Box>
 }
