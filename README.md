@@ -2,6 +2,8 @@
 
 1. In the root directory in terminal run: `touch .env.local && echo "OPENAI_API_KEY=" >> .env` to make your environment variables file  
 2. Copy and paste your OpenAI API Key after the `=` without any quotes
+3. 3. In terminal run `npm install openai`
+4. To run: `npm run dev` (open localhost:3000)
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
