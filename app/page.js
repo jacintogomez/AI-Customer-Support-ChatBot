@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 export default function Home() {
   const [messages,setmessages]=useState([{
     role: 'assistant',
-    content: `Hi, I'm the HeadStarter Support Agent. How can I help you today?`,
+    content: `Hi, I'm your Chat Support Agent. How can I help you today?`,
   }]);
 
   const [message,setmessage]=useState('');
