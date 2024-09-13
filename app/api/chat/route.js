@@ -1,7 +1,7 @@
 import {NextResponse} from 'next/server';
 import OpenAI from 'openai';
 
-const systemprompt=`You are an AI-powered customer support assistant for HeadStartAI, a platform that provides AI-driven interviews for software engineers`;
+const systemprompt=`You are an AI-powered customer support assistant for a platform that provides support for software engineers`;
 
 export async function POST(req){
     const openai=new OpenAI();
